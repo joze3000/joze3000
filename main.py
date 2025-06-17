@@ -173,7 +173,7 @@ def main():
                 p_info(f"Вы получили {found_enemy.give_exp} опыта")
                 del found_enemy
                 player.try_lvl_up(found_enemy.give_exp)
-                new_choise(combat())
+                new_choise(combat)
             elif buttle_result == "escape":
                 p_info("Своим позорным побегом ты никого не удивил, но хоть жив остался...")
                 return 0
