@@ -1,6 +1,6 @@
 from dataclasses import dataclass, field
 from enum import Enum, auto
-from random import randint, choice, random
+from random import randint, choice
 import logging
 
 #Нужно выполнить задание по логгированию, добавить макс хп, перемещение по локациям, инвентарь и получение предметов, восстановление здоровья, шансы побега.
