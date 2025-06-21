@@ -1,11 +1,10 @@
+
 from dataclasses import dataclass, field
 from enum import Enum, auto
 from random import randint, choice
 import logging
 
 #Нужно выполнить задание по логгированию, добавить макс хп, перемещение по локациям, инвентарь и получение предметов, восстановление здоровья, шансы побега.
-
-
 class Area(Enum):
     plain  =    auto()
     forest =    auto()
@@ -49,7 +48,7 @@ class Enemy():
         return int(((self.lvl + 1) * (skill_dmg + randint(-3,3)))/2)
     def __del__(self):
         logging.error(f"Бедный моб погиб")
-
+        
 @dataclass
 class Player():
     name: str
@@ -68,8 +67,8 @@ class Player():
         if self.experience >= self.experience_limit:
             self.lvl += 1
             self.experience_limit += int(self.experience*0.3)
-            logging.info(f"Поздравляем с получением {self.lvl} уровня")       
-
+            logging.info(f"Поздравляем с получением {self.lvl} уровня")   
+    
 def main():
     logger = logging.getLogger()
     logger.setLevel(logging.INFO)
@@ -81,7 +80,6 @@ def main():
     logger.addHandler(console_handler)
     p_info = logging.info
     player = Player("Игрок", 1, 100)
-    
     found_enemy  = Enemy(choice(area_enemy[player.location]), choice(area_lvl[player.location]), 100)
     #Декоратор для нового врага
     def new_choise(combat):
@@ -91,13 +89,14 @@ def main():
 2 - Продолжить сражения
 3 - Перейти на следующий уровень      
     """)
-        if travel_choise == 1:
+        if travel_choise == '1':
             p_info("Неплохо посидели, подумали о вечном. Вроде как даже отдохнули немного")
-        elif travel_choise == 2:
+        elif travel_choise == '2':
             p_info("Фига ты неугомонный фармила. Ну дерзай")
             found_enemy  = Enemy(choice(area_enemy[player.location]), choice(area_lvl[player.location]), 100)
-            combat(player, found_enemy)
-        elif travel_choise == 3:
+            p_info(f"И вот, ты встречаешь {found_enemy.name}. Удачи в бою")
+            #combat(player, found_enemy) 
+        elif travel_choise == '3':
             player.location = Area((player.location.value)+1)
             p_info(f"""Смело. Ну удачи выжить.
 Ты вышел на новую локацию - {area_name[player.location]}
@@ -113,13 +112,13 @@ def main():
     def try_escape() -> str: 
         p_info("Попытка побега")
         return 'dead' if randint(0, 1) == 0 else 'escape'
-
     def set_player_name(name):
         if name:
             player.name = name
             p_info(f"Понятно. Очередной {player.name}")
         else:
             player.name = "Игрок"
+
             p_info("Тогда будешь стандартным Игроком\n")
     def combat(player: Player, found_enemy: Enemy) -> str:
         while player.hp > 0 and found_enemy.hp > 0:
@@ -164,14 +163,13 @@ def main():
         variant = input("Выбирай с умом. И не надо лишнего. Либо 1, либо 2.\n")
         if variant == '1':
             p_info("Ну давай, заебашь его")
-            buttle_result = combat(player, found_enemy)
+            buttle_result = combat(player, found_enemy= Enemy(choice(area_enemy[player.location]), choice(area_lvl[player.location]), 100))
             if buttle_result == "dead":
                 p_info("Записали тебя в позорники")
                 return 0
             elif buttle_result == "win":
                 p_info("Ай Маладец!")
                 p_info(f"Вы получили {found_enemy.give_exp} опыта")
-                del found_enemy
                 player.try_lvl_up(found_enemy.give_exp)
                 new_choise(combat)
             elif buttle_result == "escape":
