@@ -1,0 +1,35 @@
+[33mcommit a862d7a90102b410b9caa7ca208215d5746f32e7[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: joze3000 <mihatitov4@gmail.com>
+Date:   Sat Jun 21 13:56:27 2025 +0300
+
+    Восстановил работу продолжения сражений
+
+[33mcommit 86ce6bd81160513ea494abb1f8b1cd7a3ff4a2c4[m
+Author: joze3000 <mihatitov4@gmail.com>
+Date:   Tue Jun 17 21:11:28 2025 +0300
+
+    22
+
+[33mcommit 33c4b4e54b5615b8e814fc5cf4fa85b44309b5b5[m[33m ([m[1;31morigin/master[m[33m)[m
+Author: joze3000 <mihatitov4@gmail.com>
+Date:   Tue Jun 17 21:03:21 2025 +0300
+
+    Test commit with some change for more practik in git
+
+[33mcommit ec9da215fd714c34b58fcaa218783008652ce102[m
+Author: joze3000 <mihatitov4@gmail.com>
+Date:   Tue Jun 17 20:53:41 2025 +0300
+
+    git push
+
+[33mcommit b8fe168dee51565c2a791dbb62d28af7dd256f15[m
+Author: joze3000 <mihatitov4@gmail.com>
+Date:   Mon Jun 16 21:51:31 2025 +0300
+
+    add git test text
+
+[33mcommit c25c2fecc6683daa7a2ba971a7c2ed42549fb994[m
+Author: joze3000 <mihatitov4@gmail.com>
+Date:   Mon Jun 16 21:18:18 2025 +0300
+
+    Добавленна основа проекта
