@@ -143,7 +143,7 @@ def main():
                 player.try_lvl_up(found_enemy.give_exp)
                 new_choise(combat)
             else:    
-                p_info(f"""У вас осталось {player.hp} здоровья. У вражины {found_enemy .hp}.
+                p_info(f"""У вас осталось {player.hp} здоровья. У вражины {found_enemy.hp}.
 Что делаем?
 1 - сражайся как мужчина 
 2 - в ужасе сьеби в туман""")
@@ -177,3 +177,4 @@ def main():
             p_info("Зря ты так. Я ведь тебя просил не исполнять")
 if __name__ == "__main__":
     main()
+#TODO перекинуть все данные в разные файлы + в общий импорт.py. настроить гитигнор. Разобраться с функцией main 
